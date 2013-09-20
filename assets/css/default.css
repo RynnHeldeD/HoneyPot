@@ -4,16 +4,33 @@ html, body {
 	height : 100%;
 }
 
-div.container {
-	height: 100%;
+div.content {
+	background-color: #777777;
+	position        : relative;
+	top             : 25%;
 }
 
 div.login-form {
-	display: inline-block;
-	height : 50%;
-	top    : 25%;
+	background-color: #999999;
+}
+
+div.login-side {
+	background-color: #AAAAAA;
+}
+
+div.form-side {
+	background-color: #BBBBBB;
 }
 
 div.login-element {
-	height: 50%;
+	background-color: #DDDDDD;
+}
+
+div.login-side .login-element {
+	float: right;
+}
+
+img {
+	max-width : 100%;
+	max-height: 100%;
 }
