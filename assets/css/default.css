@@ -43,6 +43,10 @@ div.login-element form label {
 	font-size  : 1.7em;
 }
 
+div.login-element form label span {
+	font-size: 0.6em;
+}
+
 div.login-element form input {
 	font-family: "Verdana", "sans-serif";
 	float      : right;
