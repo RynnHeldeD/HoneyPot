@@ -1,3 +1,5 @@
+/* High level elements */
+
 html, body {
 	padding: 0px;
 	margin : 0px;
@@ -22,12 +24,33 @@ div.form-side {
 	background-color: #BBBBBB;
 }
 
+div.picture-side .login-element {
+	float: right;
+}
+
 div.login-element {
 	background-color: #DDDDDD;
 }
 
-div.login-side .login-element {
+div.login-element i {
 	float: right;
+	font-size: 13em;
+}
+
+div.login-element form label {
+	font-family: "Nexa Light", "Verdana", "sans-serif";
+	font-size  : 2em;
+}
+
+div.login-element form input {
+	font-family: "Verdana", "sans-serif";
+}
+
+/* Other elements */
+
+@font-face {
+	font-family: "Nexa Light";
+	src        : url("../font/nexa-light.otf");
 }
 
 img {
