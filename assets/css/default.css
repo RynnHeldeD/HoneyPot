@@ -34,8 +34,9 @@ div.login-element {
 }
 
 div.login-element i {
-	float: right;
+	float    : right;
 	font-size: 13em;
+	color    : #444444;
 }
 
 div.login-element form label {
@@ -48,10 +49,10 @@ div.login-element form label span {
 }
 
 div.login-element form input {
-	font-family: "Verdana", "sans-serif";
-	float      : right;
+	font-family  : "Verdana", "sans-serif";
+	float        : right;
 	margin-bottom: 1em;
-	padding    : 0.4em;
+	padding      : 0.4em;
 }
 
 div.login-element form input.button {
