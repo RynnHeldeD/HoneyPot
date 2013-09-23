@@ -34,9 +34,10 @@ div.login-element {
 }
 
 div.login-element i {
-	float    : right;
-	font-size: 13em;
-	color    : #444444;
+	float     : right;
+	margin-top: -0.06em;
+	font-size : 15em;
+	color     : #444444;
 }
 
 div.login-element form label {
