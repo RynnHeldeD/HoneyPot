@@ -5,6 +5,7 @@ Prenons 'account.php' :
 	- Toujours des 'simple quote' en PHP
 	- Pourquoi un espace entre 'switch' et la parenthèse, alors qu'on ne le fait pas pour les fonctions
 	- Pourquoi deux tabulations après 'case' ? Le 'if' est au même niveau que 'break'
+	- Il semblerait que tu aies ajouté par mégarde des espaces ou des tabulations à la fin de certaines lignes :/ (ligne 41: $this->label = $value;)
 
 Il faut aussi qu'on discute des accolades, j'ai un peu changé d'avis sur le sujet :
 
