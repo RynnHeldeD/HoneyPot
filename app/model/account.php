@@ -8,8 +8,7 @@
 
 		public function __get($property)
 		{
-			switch ($property) 
-			{
+			switch ($property) {
 				case 'id':
 					return $this->id;
 					break;
@@ -27,23 +26,19 @@
 
 		public function __set($property, $value)
 		{
-			switch($property) 
-			{
+			switch($property) {
 				case 'id':
-					if(is_integer($value) && $value >= 0)
-					{
+					if(is_integer($value) && $value >= 0) {
 						$this->id = $value;
 					}
 					break;
 				case 'label':
-					if(is_string($value) && !empty($value))
-					{
+					if(is_string($value) && !empty($value)) {
 						$this->label = $value;	
 					}
 					break;
 				case 'amount':
-					if(is_double($value) && $value >= 0)
-					{
+					if(is_double($value) && $value >= 0) {
 						$this->amount = $value;
 					}
 					break;

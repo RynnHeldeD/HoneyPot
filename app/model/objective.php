@@ -8,8 +8,7 @@
 
 		public function __get($property)
 		{
-			switch($property) 
-			{
+			switch($property) {
 				case 'id':
 					return $this->id;
 					break;
@@ -30,30 +29,25 @@
 
 		public function __set($property, $value)
 		{
-			switch($property) 
-			{
+			switch($property) {
 				case 'id':
-					if(is_integer($value) && $value >= 0)
-					{
+					if(is_integer($value) && $value >= 0) {
 						$this->id = $value;
 					}
 					break;
 				case 'label':
-					if(is_string($value) && !empty($value))
-					{
+					if(is_string($value) && !empty($value)) {
 						$this->label = $value;	
 					}
 					break;
 				case 'goal':
-					if(is_double($value) && $value >= 0)
-					{
+					if(is_double($value) && $value >= 0) {
 						$this->goal = $value;
 					}
 					break;
 				case 'validationDate':
 					$date = explode('-', $value);
-					if(checkdate($date[1], $date[2], $date[0]))
-					{
+					if(checkdate($date[1], $date[2], $date[0])) {
 						$this->date = $value;	
 					}
 					break;
