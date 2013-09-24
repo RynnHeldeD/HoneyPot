@@ -6,8 +6,7 @@
 		protected $goal = 0;
 		protected $validationDate = '0000-00-00';
 
-		public function __get($property)
-		{
+		public function __get($property) {
 			switch($property) {
 				case 'id':
 					return $this->id;
@@ -27,8 +26,7 @@
 			}
 		}
 
-		public function __set($property, $value)
-		{
+		public function __set($property, $value) {
 			switch($property) {
 				case 'id':
 					if(is_integer($value) && $value >= 0) {
@@ -37,7 +35,7 @@
 					break;
 				case 'label':
 					if(is_string($value) && !empty($value)) {
-						$this->label = $value;	
+						$this->label = $value;
 					}
 					break;
 				case 'goal':
@@ -48,7 +46,7 @@
 				case 'validationDate':
 					$date = explode('-', $value);
 					if(checkdate($date[1], $date[2], $date[0])) {
-						$this->date = $value;	
+						$this->date = $value;
 					}
 					break;
 				default:

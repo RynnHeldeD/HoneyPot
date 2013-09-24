@@ -6,9 +6,7 @@
 		protected $amount = 0;
 		protected $date = '0000-00-00';
 
-
-		public function __get($property)
-		{
+		public function __get($property) {
 			switch($property) {
 				case 'id':
 					return $this->id;
@@ -28,8 +26,7 @@
 			}
 		}
 
-		public function __set($property, $value)
-		{
+		public function __set($property, $value) {
 			switch($property) {
 				case 'id':
 					if(is_integer($value) && $value >= 0) {
