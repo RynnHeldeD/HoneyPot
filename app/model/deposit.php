@@ -6,6 +6,21 @@
 		protected $amount = 0;
 		protected $date = '0000-00-00';
 
+		
+		public function Deposit($accountId, $amount, $date) {
+			$this->accountId = $accountId;
+			$this->amount = $amount;
+			$this->date = $date;
+		}
+
+		public function save() {
+			DepositDAL::create($this);
+		}
+
+		public function delete() {
+			DepositDAL::delete($this);
+		}
+		
 		public function __get($property) {
 			switch($property) {
 				case 'id':

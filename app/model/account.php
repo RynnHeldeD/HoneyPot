@@ -4,7 +4,18 @@
 		protected $id = 0;
 		protected $label = 'New account';
 		protected $amount = 0;
+		protected $deposits = null;
 
+		public function Account($label, $amount, $deposits = array()) {
+			$this->label = $label;
+			$this->amount = $amount;
+			$this->deposits = $deposits;
+		}
+		
+		public function save() {
+			AccountDAL::createAccount($this);
+		}
+		
 		public function __get($property) {
 			switch ($property) {
 				case 'id':
@@ -16,6 +27,9 @@
 				case 'amount':
 					return $this->amount;
 					break;
+				case 'deposits':
+					return $this->deposits;
+					break;
 				default:
 					return false;
 					break;
@@ -25,6 +39,7 @@
 		public function __set($property, $value) {
 			switch($property) {
 				case 'id':
+					$value = intval($value);
 					if(is_integer($value) && $value >= 0) {
 						$this->id = $value;
 					}
@@ -37,6 +52,11 @@
 				case 'amount':
 					if(is_double($value) && $value >= 0) {
 						$this->amount = $value;
+					}
+					break;
+				case 'deposits':
+					if(is_array($value) && !empty($value)) {
+						$this->deposits = $value;
 					}
 					break;
 				default:
