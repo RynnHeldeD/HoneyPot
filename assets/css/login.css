@@ -1,12 +1,10 @@
-/* High level elements */
-
 html, body {
 	padding: 0px;
 	margin : 0px;
 	height : 100%;
 }
 
-div.content {
+div.app-form {
 	/*background-color: #777777;*/
 	position        : relative;
 	top             : 25%;
@@ -66,7 +64,6 @@ div.login-element form input.button[type="button"] {
 	margin-right: 1%;
 }
 
-/* Other elements */
 
 @font-face {
 	font-family: "Nexa Light";
