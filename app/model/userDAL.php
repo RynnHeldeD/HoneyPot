@@ -3,13 +3,13 @@
 	{
 		private static function encryptPassword($password)
 		{
-			return md5($password . substr($password, 0, 2));
+			return md5($password);
 		}
 
-		public static function create(&$this) {
+		public static function create(&$user) {
 			DataAccessLayer::insertInto(
 				'User',
-				array($this->name, $this->email, self::encryptPassword($this->password),
+				array($user->name, $user->email, self::encryptPassword($user->password)),
 				array('name', 'email', 'password')
 			);
 		}
@@ -22,6 +22,7 @@
 			);
 
 			if(!empty($result)) {
+				$result = $result[0];
 				$user = new User($result->name, $result->email, $result->password);
 				$user->id = $result->id;
 				return $user;
@@ -31,4 +32,4 @@
 			}
 		}
 	}
-?
+?>

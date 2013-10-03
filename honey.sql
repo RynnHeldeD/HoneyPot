@@ -10,6 +10,16 @@ use HoneyPot;
 
 
 -- TABLE `Deposit` --
+CREATE TABLE IF NOT EXISTS `User` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL UNIQUE,
+  `email` varchar(255) NOT NULL UNIQUE,
+  `password` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+
+-- TABLE `Deposit` --
 CREATE TABLE IF NOT EXISTS `Deposit` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `amount` decimal(6,2) NOT NULL,
