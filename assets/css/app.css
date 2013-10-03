@@ -1,0 +1,313 @@
+html, body {
+	padding         : 0px;
+	margin          : 0px;
+	height          : 100%;
+	background-color: #F6F6F6;
+	font-family     : "Verdana", "Arial", "sans-serif";
+}
+
+div.content {
+	/*background-color: #F6F6F6;*/
+}
+
+div.app-header {
+	/*background-color: #F6F6F6;*/
+}
+
+div.app-header div.app-header-infos {
+	float       : right;
+	margin-right: -2em;
+}
+
+div.app-header div.app-header-infos a {
+	display    : block;
+	font-size  : 0.95em;
+	font-family: "Verdana", "Arial", "sans-serif";
+    margin-top : 0.6em;
+}
+
+div.app-header div.app-header-picture {
+	float: right;
+}
+
+div.app-header div.app-header-picture i {
+	font-size: 5em;
+}
+
+div.app-content {
+	/*background-color: #F6F6F6;*/
+}
+
+div.app-content hr {
+	margin-bottom: 0em;
+}
+
+div.app-content div.app-content-title {
+
+}
+
+div.app-content div.app-content-title h1 {
+	font-size    : 1.8em;
+	font-weight: normal;
+	font-family  : "Verdana", "Arial", "sans-serif";
+	margin-bottom: 0em;
+	background-color: #EEEEEE;
+}
+
+div.app-content div.app-content-data {
+	margin: 0.5em 0em 1em;
+	/*background-color: #BBBBBB;*/
+}
+
+div.app-content div.app-content-data div.app-content-account {
+	/*background-color: #CCCCCC;*/
+}
+
+div.app-content div.app-content-data div.app-content-account[class*="column"]:last-child {
+	float: inherit;
+}
+
+div.app-content div.app-content-data div.app-content-account div.account {
+	/*background-color: #EEEEEE;*/
+	cursor: pointer;
+	margin: 5px auto;
+	height: 5em;
+}
+
+div.app-content div.app-content-data div.app-content-account div.account:hover {
+	-webkit-box-shadow: inset 1px 1px 1px 0px #CCCCCC;
+	box-shadow        : inset 1px 1px 1px 0px #CCCCCC;
+	-moz-box-shadow   : 0px 0px 4px 0px #C5C5C5;
+	-webkit-box-shadow: 0px 0px 4px 0px #C5C5C5;
+	-o-box-shadow     : 0px 0px 4px 0px #C5C5C5;
+	box-shadow        : 0px 0px 4px 0px #C5C5C5;
+	filter:progid     : DXImageTransform.Microsoft.Shadow(color=#C5C5C5, Direction=NaN, Strength=4);
+}
+
+div.app-content div.app-content-data div.app-content-account div.account:active {
+	position: relative;
+	top     : 1px;
+}
+
+div.app-content div.app-content-data div.app-content-account div.account h2.account-label {
+	font-size  : 1.5em;
+	font-weight: normal;
+	font-family: "Verdana", "Arial", "sans-serif";
+	text-align : center;
+	margin     : 0.4em auto 0.2em;
+	color      : #F3F3F3;
+}
+
+div.app-content div.app-content-data div.app-content-account div.account span.account-amount {
+	font-size    : 0.75em;
+	font-weight  : normal;
+	font-family  : "Verdana", "Arial", "sans-serif";
+	display      : block;
+	text-align   : center;
+	margin-bottom: 10px;
+	color        : #EAEAEA;
+}
+
+div.app-content div.app-content-data div.app-content-objective {
+	/*background-color: #EEEEEE;*/
+}
+
+div.app-content div.app-content-data div.app-content-objective div.objective {
+	margin: 5px auto;
+}
+
+div.app-content div.app-content-data div.app-content-objective div.objective div.objective-header {
+
+}
+
+div.app-content div.app-content-data div.app-content-objective div.objective div.objective-header h2.objective-label {
+	font-size   : 1.5em;
+	font-weight : normal;
+	font-family : "Verdana", "Arial", "sans-serif";
+	padding-left: 0px;
+    text-align  : left;
+    color       : #3C3C3C;
+}
+
+div.app-content div.app-content-data div.app-content-objective div.objective div.objective-header h2.objective-label:hover {
+	cursor      : pointer;
+}
+
+div.app-content div.app-content-data div.app-content-objective div.objective div.objective-header h3.objective-percent {
+	font-size    : 1.2em;
+	font-weight  : normal;
+	font-family  : "Verdana", "Arial", "sans-serif";
+	padding-right: 0px;
+	margin-top   : 0.7em;
+    text-align   : right;
+}
+
+div.app-content div.app-content-data div.app-content-objective div.objective div.objective-progress {
+	height: 2.1em;
+}
+
+div.app-content div.app-content-data div.app-content-objective div.objective div.objective-progress:hover {
+	cursor            : pointer;
+	-moz-box-shadow   : 0px 0px 2px 0px #C5C5C5;
+	-webkit-box-shadow: 0px 0px 2px 0px #C5C5C5;
+	-o-box-shadow     : 0px 0px 2px 0px #C5C5C5;
+	box-shadow        : 0px 0px 2px 0px #C5C5C5;
+	filter:progid     : DXImageTransform.Microsoft.Shadow(color=#C5C5C5, Direction=NaN, Strength=2);
+}
+
+div.app-content div.app-content-data div.app-content-objective div.objective div.objective-progress span.objective-meter {
+	text-align : center;
+	font-size  : 0.8em;
+	font-weight: normal;
+	font-family: "Verdana", "Arial", "sans-serif";
+	line-height: 2em;
+	display    : inline-block;
+	color      : #EAEAEA;
+}
+
+div.app-content div.app-content-data div.app-content-objective div.objective div.objective-progress span.objective-meter:hover {
+	cursor            : pointer;
+	-moz-box-shadow   : inset 0px 0px 2px 0px #FFFFFF;
+	-webkit-box-shadow: inset 0px 0px 2px 0px #FFFFFF;
+	-o-box-shadow     : inset 0px 0px 2px 0px #FFFFFF;
+	box-shadow        : inset 0px 0px 2px 0px #FFFFFF;
+	filter:progid     : DXImageTransform.Microsoft.Shadow(color=#FFFFFF, Direction=NaN, Strength=2);
+}
+
+div.app-content div.app-content-data div.app-content-objective div.objective div.objective-progress span.objective-meter[class*="column"] {
+	float: inherit;
+}
+
+div.app-content div.app-content-data div.app-content-objective div.objective div.objective-postfix {
+	padding: 0em;
+}
+
+div.app-content div.app-content-data div.app-content-objective div.objective div.objective-postfix:hover {
+	cursor            : pointer;
+	-moz-box-shadow   : 0px 0px 2px 0px #C5C5C5;
+	-webkit-box-shadow: 0px 0px 2px 0px #C5C5C5;
+	-o-box-shadow     : 0px 0px 2px 0px #C5C5C5;
+	box-shadow        : 0px 0px 2px 0px #C5C5C5;
+	filter:progid     : DXImageTransform.Microsoft.Shadow(color=#C5C5C5, Direction=NaN, Strength=2);
+}
+
+div.app-content div.app-content-data div.app-content-objective div.objective div.objective-postfix span.objective-amount {
+	font-size       : 0.96em;
+    font-weight     : bold;
+    height          : 2.2em;
+    line-height     : 2em;
+	font-family     : "Verdana", "Arial", "sans-serif";
+	background-color: #F0F0F0;
+}
+
+/* Accounts styling */
+
+#account1 {
+	background-color: #7373D9;
+	/*border: 1px solid #25258D;*/
+	/*-webkit-box-shadow: inset 0px 1px 0px 0px #F0F0F0;
+	-moz-box-shadow   : inset 0px 1px 0px 0px #F0F0F0;
+	box-shadow        : inset 0px 1px 0px 0px #F0F0F0;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #AFAFEC), color-stop(1, #7373D9) );
+	background:-moz-linear-gradient( center top, #AFAFEC 5%, #7373D9 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#AFAFEC', endColorstr='#7373D9');*/
+}
+
+#account1:hover {
+	/*background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #7373D9), color-stop(1, #AFAFEC) );
+	background:-moz-linear-gradient( center top, #7373D9 5%, #AFAFEC 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#7373D9', endColorstr='#AFAFEC');*/
+}
+
+#account2 {
+	background-color: #64DE89;
+	/*border: 1px solid #209042;*/
+	/*-webkit-box-shadow: inset 0px 1px 0px 0px #F0F0F0;
+	-moz-box-shadow   : inset 0px 1px 0px 0px #F0F0F0;
+	box-shadow        : inset 0px 1px 0px 0px #F0F0F0;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #A6EFBC), color-stop(1, #64DE89) );
+	background:-moz-linear-gradient( center top, #A6EFBC 5%, #64DE89 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#A6EFBC', endColorstr='#64DE89');*/
+}
+
+#account2:hover {
+	/*background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #64DE89), color-stop(1, #A6EFBC) );
+	background:-moz-linear-gradient( center top, #64DE89 5%, #A6EFBC 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#64DE89', endColorstr='#A6EFBC');*/
+}
+
+#account3 {
+	background-color: #FF7373;
+	/*border: 1px solid #A62525;*/
+	/*-webkit-box-shadow: inset 0px 1px 0px 0px #F0F0F0;
+	-moz-box-shadow   : inset 0px 1px 0px 0px #F0F0F0;
+	box-shadow        : inset 0px 1px 0px 0px #F0F0F0;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #FFB2B2), color-stop(1, #FF7373) );
+	background:-moz-linear-gradient( center top, #FFB2B2 5%, #FF7373 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFB2B2', endColorstr='#FF7373');*/
+}
+
+#account3:hover {
+	/*background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #FF7373), color-stop(1, #FFB2B2) );
+	background:-moz-linear-gradient( center top, #FF7373 5%, #FFB2B2 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF7373', endColorstr='#FFB2B2');*/
+}
+
+#account4 {
+	background-color: #FFD073;
+	/*border: 1px solid #A67B25;*/
+	/*-webkit-box-shadow: inset 0px 1px 0px 0px #F0F0F0;
+	-moz-box-shadow   : inset 0px 1px 0px 0px #F0F0F0;
+	box-shadow        : inset 0px 1px 0px 0px #F0F0F0;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #FFE5B2), color-stop(1, #FFD073) );
+	background:-moz-linear-gradient( center top, #FFE5B2 5%, #FFD073 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFE5B2', endColorstr='#FFD073');*/
+}
+
+#account4:hover {
+	/*background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #FFD073), color-stop(1, #FFE5B2) );
+	background:-moz-linear-gradient( center top, #FFD073 5%, #FFE5B2 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFD073', endColorstr='#FFE5B2');*/
+}
+
+#account5 {
+	background-color: #62B1D0;
+	/*border: 1px solid #206B87;*/
+	/*-webkit-box-shadow: inset 0px 1px 0px 0px #F0F0F0;
+	-moz-box-shadow   : inset 0px 1px 0px 0px #F0F0F0;
+	box-shadow        : inset 0px 1px 0px 0px #F0F0F0;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #A4D5E8), color-stop(1, #62B1D0) );
+	background:-moz-linear-gradient( center top, #A4D5E8 5%, #62B1D0 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#A4D5E8', endColorstr='#62B1D0');*/
+}
+
+#account5:hover {
+	/*background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #62B1D0), color-stop(1, #A4D5E8) );
+	background:-moz-linear-gradient( center top, #62B1D0 5%, #A4D5E8 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#62B1D0', endColorstr='#A4D5E8');*/
+}
+
+#meter1 {
+	background-color: #FFD073;
+	width: 25%;
+}
+
+#meter2 {
+	background-color: #62B1D0;
+	width: 62.5%;
+}
+
+#meter3 {
+	background-color: #64DE89;
+	width: 12.5%;
+}
+
+#meter4 {
+	background-color: #FF7373;
+	width: 4%;
+}
+
+#meter5 {
+	background-color: #64DE89;
+	width: 22.5%;
+}
