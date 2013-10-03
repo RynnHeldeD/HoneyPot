@@ -71,7 +71,7 @@
 					foreach($values as $value) {
 						$valuesString .= '?, ';
 					}
-					$valuesString = substr($values, 0, -2);
+					$valuesString = substr($valuesString, 0, -2);
 				
 					self::query('INSERT INTO ' . $table . $fieldsString . ' VALUES ( ' . $valuesString . ');', $values, false);
 				}

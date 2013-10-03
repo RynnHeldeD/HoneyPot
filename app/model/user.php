@@ -1,4 +1,4 @@
-<?
+<?php
 	class User
 	{	
 		protected $name = "undefined";
@@ -24,8 +24,8 @@
 				case 'name':
 					return $this->name;
 					break;
-				case 'login':
-					return $this->login;
+				case 'password':
+					return $this->password;
 					break;
 				case 'email':
 					return $this->email;
