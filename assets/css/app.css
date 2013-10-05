@@ -15,15 +15,20 @@ div.app-header {
 }
 
 div.app-header div.app-header-infos {
-	float       : right;
 	margin-right: -2em;
+	margin-top  : 2em;
+}
+
+div.app-header div.app-header-infos[class*="column"]:last-child {
+	float: inherit;
 }
 
 div.app-header div.app-header-infos a {
-	display    : block;
-	font-size  : 0.95em;
-	font-family: "Verdana", "Arial", "sans-serif";
-    margin-top : 0.6em;
+	display     : inline-block;
+	text-align  : center;
+	color       : #696969;
+	font-size   : 1.2em;
+	font-family : "Verdana", "Arial", "sans-serif";
 }
 
 div.app-header div.app-header-picture {
@@ -47,11 +52,12 @@ div.app-content div.app-content-title {
 }
 
 div.app-content div.app-content-title h1 {
+	color        : #5D5D5D;
 	font-size    : 1.8em;
-	font-weight: normal;
+	font-weight  : normal;
 	font-family  : "Verdana", "Arial", "sans-serif";
+	margin-top   : 1em;
 	margin-bottom: 0em;
-	background-color: #EEEEEE;
 }
 
 div.app-content div.app-content-data {
@@ -61,6 +67,7 @@ div.app-content div.app-content-data {
 
 div.app-content div.app-content-data div.app-content-account {
 	/*background-color: #CCCCCC;*/
+	padding: 2px;
 }
 
 div.app-content div.app-content-data div.app-content-account[class*="column"]:last-child {
@@ -70,7 +77,6 @@ div.app-content div.app-content-data div.app-content-account[class*="column"]:la
 div.app-content div.app-content-data div.app-content-account div.account {
 	/*background-color: #EEEEEE;*/
 	cursor: pointer;
-	margin: 5px auto;
 	height: 5em;
 }
 
@@ -126,7 +132,7 @@ div.app-content div.app-content-data div.app-content-objective div.objective div
 	font-family : "Verdana", "Arial", "sans-serif";
 	padding-left: 0px;
     text-align  : left;
-    color       : #3C3C3C;
+    color       : #696969;
 }
 
 div.app-content div.app-content-data div.app-content-objective div.objective div.objective-header h2.objective-label:hover {
@@ -134,16 +140,17 @@ div.app-content div.app-content-data div.app-content-objective div.objective div
 }
 
 div.app-content div.app-content-data div.app-content-objective div.objective div.objective-header h3.objective-percent {
-	font-size    : 1.2em;
+	color        : #696969;
+	font-size    : 0.9em;
 	font-weight  : normal;
 	font-family  : "Verdana", "Arial", "sans-serif";
 	padding-right: 0px;
-	margin-top   : 0.7em;
+	margin-top   : 1.3em;
     text-align   : right;
 }
 
 div.app-content div.app-content-data div.app-content-objective div.objective div.objective-progress {
-	height: 2.1em;
+	height: 2.5em;
 }
 
 div.app-content div.app-content-data div.app-content-objective div.objective div.objective-progress:hover {
@@ -160,7 +167,7 @@ div.app-content div.app-content-data div.app-content-objective div.objective div
 	font-size  : 0.8em;
 	font-weight: normal;
 	font-family: "Verdana", "Arial", "sans-serif";
-	line-height: 2em;
+	line-height: 2.5em;
 	display    : inline-block;
 	color      : #EAEAEA;
 }
@@ -192,12 +199,81 @@ div.app-content div.app-content-data div.app-content-objective div.objective div
 }
 
 div.app-content div.app-content-data div.app-content-objective div.objective div.objective-postfix span.objective-amount {
+	color           : #555555;
 	font-size       : 0.96em;
     font-weight     : bold;
-    height          : 2.2em;
-    line-height     : 2em;
+    height          : 2.6em;
+    line-height     : 2.4em;
 	font-family     : "Verdana", "Arial", "sans-serif";
 	background-color: #F0F0F0;
+}
+
+div#account-modal {
+	background-color: #F6F6F6;
+}
+
+div#account-modal div.account-modal-title {
+	margin-bottom: 1em;
+}
+
+div#account-modal div.account-modal-title h2 {
+	color        : #5D5D5D;
+}
+
+div#account-modal div.account-modal-title h4 {
+	color        : #5D5D5D;
+	font-size    : 1.2em;
+	line-height  : 3.5em;
+    padding-right: 34px;
+    text-align   : right;
+}
+
+div#account-modal h5, div#account-modal span {
+	color     : #696969;
+}
+
+div#account-modal hr {
+	height: 20px;
+}
+
+div#account-modal div.account-modal-balance {
+	
+}
+
+div#account-modal div.account-modal-balance h5 {
+
+}
+
+div#account-modal div.account-modal-balance span {
+	font-size : 0.95em;
+    margin-top: 0.5em;
+    text-align: right;
+}
+
+div#account-modal h3.account-modal-objective-label {
+	font-size   : 1.5em;
+	font-weight : normal;
+	font-family : "Verdana", "Arial", "sans-serif";
+	padding-left: 0px;
+    text-align  : left;
+    color       : #696969;
+}
+
+div#account-modal div.account-modal-objective-slider.noUiSlider {
+	margin-top: 0.5em;
+}
+
+div#account-modal div.account-modal-objective-slider.noUiSlider div.noUi-base {
+	height: 30px;
+}
+
+div#account-modal div.account-modal-objective-slider.noUiSlider div.noUi-base div.noUi-origin div.noUi-handle {
+	height: 34px;
+}
+
+div#account-modal h5.account-modal-objective-slider-value {
+	margin-top: 0.5em;
+	text-align: right;
 }
 
 /* Accounts styling */
