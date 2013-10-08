@@ -14,11 +14,11 @@
 			);
 		}
 
-		public static function authenticate($email, $password)
+		public static function authenticate($login, $password)
 		{
 			$result = DataAccessLayer::query(
-				"SELECT * FROM user WHERE email = ? AND password = ?",
-				array($email, self::encryptPassword($password))
+				"SELECT * FROM user WHERE name = ? AND password = ?",
+				array($login, self::encryptPassword($password))
 			);
 
 			if(!empty($result)) {
