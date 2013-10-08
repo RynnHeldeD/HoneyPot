@@ -9,7 +9,7 @@ CREATE DATABASE HoneyPot;
 use HoneyPot;
 
 
--- TABLE `Deposit` --
+-- TABLE `User` --
 CREATE TABLE IF NOT EXISTS `User` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL UNIQUE,
