@@ -237,7 +237,7 @@ div#account-modal hr {
 }
 
 div#account-modal div.account-modal-balance {
-	
+
 }
 
 div#account-modal div.account-modal-balance h5 {
@@ -386,4 +386,9 @@ div#account-modal h5.account-modal-objective-slider-value {
 #meter5 {
 	background-color: #64DE89;
 	width: 22.5%;
+}
+
+#meter6 {
+	background-color: #62B1D0;
+	width: 50%;
 }

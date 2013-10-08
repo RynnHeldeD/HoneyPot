@@ -1,4 +1,4 @@
-$(document).ready(function() {
+﻿$(document).ready(function() {
 	// Handle the click on an account
 	$('.app-content-data .app-content-account .account').click(function() {
 		// Retrieves the account modal
@@ -51,10 +51,12 @@ $(document).ready(function() {
 			var modalObjective = $('<div/>', {
 				class: 'large-12 columns account-modal-objective'
 			});
+
 			var modalObjectiveLabel = $('<h3/>', {
 				text : objectiveLabel,
 				class: 'large-4 columns account-modal-objective-label'
 			}).appendTo(modalObjective);
+
 			var modalObjectiveSlider = $('<div/>', {
 				class: 'large-6 columns account-modal-objective-slider noUiSlider'
 			}).noUiSlider({
@@ -62,10 +64,43 @@ $(document).ready(function() {
 				start  : 0,
 				handles: 1,
 				step   : 1,
-				slide: function() {
-					$(this).parent().find('.account-modal-objective-slider-value').text($(this).val() + '€');
+				slide  : function() {
+					var sliderValue   = parseInt($(this).val());
+					var sliders       = $('.account-modal-objective-slider');
+					var slidersNumber = sliders.length;
+					var slidersSum    = 0;
+
+					// Count the sliders value
+					sliders.each(function() {
+						slidersSum += parseInt($(this).val());
+					});
+
+					// Updates the slider's value
+					$(this).parent().find('.account-modal-objective-slider-value').text(sliderValue + '€');
+
+					// Balance the sliders values
+					if(slidersSum > accountBalanceInt) {
+						sliders.each(function() {
+							var slider = $(this);
+							// Only take care about the other sliders
+							if(parseInt(slider.val()) !== sliderValue) {
+								// console.log('different');
+								// -1 because we don't care about the selected slider
+								slider.val(Math.ceil(parseInt(slider.val()) - ((slidersSum - accountBalanceInt) / (slidersNumber - 1))), true);
+								console.log(Math.ceil(parseInt(slider.val()) - ((slidersSum - accountBalanceInt) / (slidersNumber - 1))));
+							}
+							else {
+								// console.log('equals');
+							}
+						});
+					}
+				},
+				set    : function() {
+					// Updates the slider's value
+					$(this).parent().find('.account-modal-objective-slider-value').text(parseInt($(this).val()) + '€');
 				}
 			}).appendTo(modalObjective);
+
 			var modalObjectiveSliderValue = $('<h5/>', {
 				text : '0€',
 				class: 'large-2 columns account-modal-objective-slider-value'
