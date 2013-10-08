@@ -6,6 +6,11 @@
 			{
 				require_once('app/model/'. $class . '.php');
 			}
+
+			elseif(file_exists('app/controllers/' . $class . '.php'))
+			{
+				require_once('app/controllers/'. $class . '.php');
+			}
 		});
 	}
 	
