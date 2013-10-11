@@ -6,7 +6,7 @@
 		}
 
 		private static function showFrontPage() {
-			include_once('app/views/index.html');
+			include_once('app/views/index.view.php');
 		}
 	}
 ?>

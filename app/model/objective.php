@@ -3,11 +3,28 @@
 	{
 		protected $id = 0;
 		protected $label = 'New objective';
+		protected $allocations = null;
 		protected $goal = 0;
 		protected $validationDate = '0000-00-00';
 
+		public function Objective($label, $goal, $validationDate) {
+			$this->label = $label;
+			$this->goal = $goal;
+			$this->validationDate = $validationDate;
+		}
+
 		public function __get($property) {
 			switch($property) {
+				case 'amount':
+					$totalAmount = 0;
+					foreach ($this->allocations as $account => $amount) {
+						$totalAmount += $amount;
+					}
+					return $totalAmount;
+					break;
+				case 'allocations':
+					return $this->allocations;
+					break;
 				case 'id':
 					return $this->id;
 					break;
@@ -36,6 +53,11 @@
 				case 'label':
 					if(is_string($value) && !empty($value)) {
 						$this->label = $value;
+					}
+					break;
+				case 'allocations':
+					if(is_array($value) && !empty($value)) {
+						$this->allocations = $value;
 					}
 					break;
 				case 'goal':

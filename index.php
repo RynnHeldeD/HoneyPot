@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	require("app/splAutoload.php");
-var_dump($_SESSION);
+
 	$user = null;
 	if(isset($_SESSION['user'])) {
 		$user = unserialize($_SESSION['user']);
