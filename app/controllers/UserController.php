@@ -5,7 +5,7 @@
 		}
 
 		private static function showLoginFormAction() {
-			include_once('app/views/login.html');
+			include_once('app/views/login.view.php');
 		}
 
 		public static function loginAction() {
