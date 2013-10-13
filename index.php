@@ -15,12 +15,16 @@
 		$action = "defaultAction";
 
 		if(isset($_GET['p'])) {
-			$controller = $_GET['p'] . 'Controller';
-			if($_GET['p'] == 'logout'){session_destroy();}
-		}
-
-		if(isset($_GET['a'])) {
-			$action = $_GET['a'] . 'Action';	
+			if($_GET['p'] == 'logout') {
+				session_destroy();
+				header('Location: index.php');
+			}
+			else {
+				$controller = $_GET['p'] . 'Controller';
+				if(isset($_GET['a'])) {
+					$action = $_GET['a'] . 'Action';	
+				}
+			}
 		}
 
 		if(file_exists('app/controllers/' . $controller . '.php')) {

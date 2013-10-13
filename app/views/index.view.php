@@ -20,7 +20,7 @@
 				<div class="large-8 columns app-header-infos">
 					<a class="large-4 columns" href="#">MON COMPTE</a>
 					<a class="large-4 columns" href="#">PARAMÈTRES</a>
-					<a class="large-4 columns" href="#">DÉCONNEXION</a>
+					<a class="large-4 columns" href="index.php?p=logout">DÉCONNEXION</a>
 				</div>
 			</div>
 			<div class="large-12 columns app-content">
