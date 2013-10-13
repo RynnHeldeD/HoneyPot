@@ -17,8 +17,10 @@
 			switch($property) {
 				case 'amount':
 					$totalAmount = 0;
-					foreach ($this->allocations as $account => $amount) {
-						$totalAmount += $amount;
+					if($this->allocations) {
+						foreach ($this->allocations as $account => $amount) {
+							$totalAmount += $amount;
+						}
 					}
 					return $totalAmount;
 					break;

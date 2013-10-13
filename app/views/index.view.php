@@ -55,10 +55,11 @@
 									</div>
 									<div class="large-11 columns progress objective-progress">';
 							
-							foreach($objective->allocations as $account => $amount) {
-								echo '<span id="meter1" class="meter columns objective-meter" data-account-id="'.$account.'">'.$amount.'</span>';
+							if($objective->allocations) {
+								foreach($objective->allocations as $account => $amount) {
+									echo '<span id="meter1" class="meter columns objective-meter" data-account-id="'.$account.'">'.$amount.'</span>';
+								}
 							}
-							
 							echo '</div>
 									<div class="large-1 columns objective-postfix">
 										<span class="postfix objective-amount">'.$objective->goal.'€</span>
