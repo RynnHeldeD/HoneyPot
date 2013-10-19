@@ -51,7 +51,7 @@
 								<div class="large-12 columns objective">
 									<div class="large-11 columns objective-header">
 										<h2 class="large-10 columns objective-label">'.$objective->label.'</h2>
-										<h3 class="large-2 columns objective-percent">'.($objective->amount / $objective->goal).'%</h3>
+										<h3 class="large-2 columns objective-percent">'.(($objective->amount / $objective->goal) * 100).'%</h3>
 									</div>
 									<div class="large-11 columns progress objective-progress">';
 							
