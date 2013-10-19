@@ -1,6 +1,43 @@
-﻿$(document).ready(function() {
+﻿var accounts = $('.app-content-data .app-content-account .account');
+var meters = $('.app-content-data .app-content-objective .objective .objective-progress .objective-meter');
+var colors = [
+	'#7373D9', // Violet
+	'#64DE89', // Green
+	'#FF7373', // Red
+	'#FFD073', // Yellow
+	'#62B1D0', // Blue
+];
+
+// Sets the right colors and width for accounts and objective meters
+var setAccountsColors = function() {
+	accounts.each(function(index) {
+		$(this).addClass('account' + (index + 1));
+	});
+	meters.each(function() {
+		var meterAccountClass = '';
+		var meterAccountId = $(this).attr('data-account-id');
+		var objectiveValue = $(this).parent().next().find('.objective-amount').text();
+		var meterValue = $(this).text();
+		var meterWidth = (parseInt(meterValue) * 100) / parseInt(objectiveValue.substring(0, objectiveValue.length - 1));
+		console.log(meterWidth);
+		accounts.each(function() {
+			if($(this).attr('data-account-id') === meterAccountId) {
+				var accountClasses = $(this).attr('class').split(' ');
+				meterAccountClass = accountClasses[accountClasses.length - 1];
+			}
+		});
+		$(this).addClass(meterAccountClass);
+		$(this).css({
+			width: meterWidth + '%'
+		});
+	});
+}
+
+$(document).ready(function() {
+	setAccountsColors();
+	
 	// Handle the click on an account
-	$('.app-content-data .app-content-account .account').click(function() {
+	accounts.click(function() {
 		// Retrieves the account modal
 		var accountModal = $('#account-modal');
 		var accountModalLabel = accountModal.find('.account-modal-title h4');
@@ -136,7 +173,7 @@
 	});
 
 	// Handle the click on an objective bar part
-	$('.app-content-data .app-content-objective .objective .objective-progress .objective-meter').click(function() {
+	meters.click(function() {
 		// console.log($(this));
 	});
 });

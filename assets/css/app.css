@@ -278,117 +278,22 @@ div#account-modal h5.account-modal-objective-slider-value {
 
 /* Accounts styling */
 
-#account1 {
-	background-color: #7373D9;
-	/*border: 1px solid #25258D;*/
-	/*-webkit-box-shadow: inset 0px 1px 0px 0px #F0F0F0;
-	-moz-box-shadow   : inset 0px 1px 0px 0px #F0F0F0;
-	box-shadow        : inset 0px 1px 0px 0px #F0F0F0;
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #AFAFEC), color-stop(1, #7373D9) );
-	background:-moz-linear-gradient( center top, #AFAFEC 5%, #7373D9 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#AFAFEC', endColorstr='#7373D9');*/
+div.account1, span.account1.meter {
+	background: none repeat scroll 0 0 #7373D9;
 }
 
-#account1:hover {
-	/*background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #7373D9), color-stop(1, #AFAFEC) );
-	background:-moz-linear-gradient( center top, #7373D9 5%, #AFAFEC 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#7373D9', endColorstr='#AFAFEC');*/
+div.account2, span.account2.meter {
+	background: none repeat scroll 0 0 #64DE89;
 }
 
-#account2 {
-	background-color: #64DE89;
-	/*border: 1px solid #209042;*/
-	/*-webkit-box-shadow: inset 0px 1px 0px 0px #F0F0F0;
-	-moz-box-shadow   : inset 0px 1px 0px 0px #F0F0F0;
-	box-shadow        : inset 0px 1px 0px 0px #F0F0F0;
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #A6EFBC), color-stop(1, #64DE89) );
-	background:-moz-linear-gradient( center top, #A6EFBC 5%, #64DE89 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#A6EFBC', endColorstr='#64DE89');*/
+div.account3, span.account3.meter {
+	background: none repeat scroll 0 0 #FF7373;
 }
 
-#account2:hover {
-	/*background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #64DE89), color-stop(1, #A6EFBC) );
-	background:-moz-linear-gradient( center top, #64DE89 5%, #A6EFBC 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#64DE89', endColorstr='#A6EFBC');*/
+div.account4, span.account4.meter {
+	background: none repeat scroll 0 0 #FFD073;
 }
 
-#account3 {
-	background-color: #FF7373;
-	/*border: 1px solid #A62525;*/
-	/*-webkit-box-shadow: inset 0px 1px 0px 0px #F0F0F0;
-	-moz-box-shadow   : inset 0px 1px 0px 0px #F0F0F0;
-	box-shadow        : inset 0px 1px 0px 0px #F0F0F0;
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #FFB2B2), color-stop(1, #FF7373) );
-	background:-moz-linear-gradient( center top, #FFB2B2 5%, #FF7373 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFB2B2', endColorstr='#FF7373');*/
-}
-
-#account3:hover {
-	/*background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #FF7373), color-stop(1, #FFB2B2) );
-	background:-moz-linear-gradient( center top, #FF7373 5%, #FFB2B2 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF7373', endColorstr='#FFB2B2');*/
-}
-
-#account4 {
-	background-color: #FFD073;
-	/*border: 1px solid #A67B25;*/
-	/*-webkit-box-shadow: inset 0px 1px 0px 0px #F0F0F0;
-	-moz-box-shadow   : inset 0px 1px 0px 0px #F0F0F0;
-	box-shadow        : inset 0px 1px 0px 0px #F0F0F0;
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #FFE5B2), color-stop(1, #FFD073) );
-	background:-moz-linear-gradient( center top, #FFE5B2 5%, #FFD073 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFE5B2', endColorstr='#FFD073');*/
-}
-
-#account4:hover {
-	/*background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #FFD073), color-stop(1, #FFE5B2) );
-	background:-moz-linear-gradient( center top, #FFD073 5%, #FFE5B2 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFD073', endColorstr='#FFE5B2');*/
-}
-
-#account5 {
-	background-color: #62B1D0;
-	/*border: 1px solid #206B87;*/
-	/*-webkit-box-shadow: inset 0px 1px 0px 0px #F0F0F0;
-	-moz-box-shadow   : inset 0px 1px 0px 0px #F0F0F0;
-	box-shadow        : inset 0px 1px 0px 0px #F0F0F0;
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #A4D5E8), color-stop(1, #62B1D0) );
-	background:-moz-linear-gradient( center top, #A4D5E8 5%, #62B1D0 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#A4D5E8', endColorstr='#62B1D0');*/
-}
-
-#account5:hover {
-	/*background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #62B1D0), color-stop(1, #A4D5E8) );
-	background:-moz-linear-gradient( center top, #62B1D0 5%, #A4D5E8 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#62B1D0', endColorstr='#A4D5E8');*/
-}
-
-#meter1 {
-	background-color: #FFD073;
-	width: 25%;
-}
-
-#meter2 {
-	background-color: #62B1D0;
-	width: 62.5%;
-}
-
-#meter3 {
-	background-color: #64DE89;
-	width: 12.5%;
-}
-
-#meter4 {
-	background-color: #FF7373;
-	width: 4%;
-}
-
-#meter5 {
-	background-color: #64DE89;
-	width: 22.5%;
-}
-
-#meter6 {
-	background-color: #62B1D0;
-	width: 50%;
+div.account5, span.account5.meter {
+	background: none repeat scroll 0 0 #62B1D0;
 }

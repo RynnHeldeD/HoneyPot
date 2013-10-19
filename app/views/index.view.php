@@ -32,7 +32,7 @@
 					<?php if(isset($accounts)) {
 						foreach ($accounts as $counter => $account) {
 							echo '<div class="large-3 columns app-content-account">
-								<div id="account'.$account->id.'" class="large-12 columns account" data-account-id="'.$account->id.'">
+								<div class="large-12 columns account" data-account-id="'.$account->id.'">
 									<h2 class="account-label">'.$account->label.'</h2>
 									<span class="account-amount">'.$account->amount.'</span>
 								</div>
