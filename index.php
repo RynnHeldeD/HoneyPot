@@ -1,6 +1,7 @@
 <?php
 	session_start();
 	require("app/splAutoload.php");
+	global $user;
 
 	$user = null;
 	if(isset($_SESSION['user'])) {

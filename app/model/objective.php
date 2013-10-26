@@ -2,33 +2,40 @@
 	class Objective
 	{
 		protected $id = 0;
+		protected $userId = 0;
+		protected $goal = null;
 		protected $label = 'New objective';
 		protected $allocations = null;
-		protected $goal = 0;
 		protected $validationDate = '0000-00-00';
 
-		public function Objective($label, $goal, $validationDate) {
+		public function Objective($userId, $label, $goal, $validationDate, $allocations = array()) {
+			$this->userId = (int) $userId;
+			$this->goal = (int) $goal;
 			$this->label = $label;
-			$this->goal = $goal;
+			$this->allocations = $allocations;
 			$this->validationDate = $validationDate;
+		}
+
+		public function getAmount() {
+			$totalAmount = 0;
+			if($this->allocations) {
+				foreach ($this->allocations as $account => $amount) {
+					$totalAmount += $amount;
+				}
+			}
+			return $totalAmount;
 		}
 
 		public function __get($property) {
 			switch($property) {
-				case 'amount':
-					$totalAmount = 0;
-					if($this->allocations) {
-						foreach ($this->allocations as $account => $amount) {
-							$totalAmount += $amount;
-						}
-					}
-					return $totalAmount;
-					break;
 				case 'allocations':
 					return $this->allocations;
 					break;
 				case 'id':
 					return $this->id;
+					break;
+				case 'userId':
+					return $this->userId;
 					break;
 				case 'label':
 					return $this->label;
@@ -52,6 +59,11 @@
 						$this->id = $value;
 					}
 					break;
+				case 'userId':
+					if(is_integer($value) && $value >= 0) {
+						$this->userId = $value;
+					}
+					break;
 				case 'label':
 					if(is_string($value) && !empty($value)) {
 						$this->label = $value;
@@ -63,7 +75,7 @@
 					}
 					break;
 				case 'goal':
-					if(is_double($value) && $value >= 0) {
+					if((is_double($value) && $value >= 0) || is_null($value)) {
 						$this->goal = $value;
 					}
 					break;

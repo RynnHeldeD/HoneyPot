@@ -2,10 +2,12 @@
 	class ObjectiveDAL
 	{
 		public static function createObjective(&$objective) {
+			global $user;
+
 			DataAccessLayer::insertInto(
 				'objective',
-				array($objective->label, $objective->goal),
-				array('label', 'goal')
+				array($user->id, $objective->label, $objective->goal),
+				array('userId', 'label', 'goal')
 			);
 			$objective->id = DataAccessLayer::getValue('SELECT  MAX(id) FROM objective');
 		}
@@ -16,7 +18,12 @@
 			$objectives = array();
 			
 			foreach($objects as $objective){
-				$anObjective = new Objective($objective->label, $objective->goal, $objective->validationDate);
+				$anObjective = new Objective(
+					$objective->userId,
+					$objective->label,
+					$objective->goal,
+					$objective->validationDate
+				);
 				$anObjective->id = (int)$objective->id;
 				$anObjective->allocations = self::getAllAllocations($anObjective->id);
 

@@ -7,7 +7,7 @@
 				array($deposit->accountId, $deposit->amount, date('Y-m-d')), 
 				array('accountId', 'amount', 'date')
 			);
-			$deposit->id = DataAccessLayer::getValue('SELECT MAX(id) FROM deposit');
+			$deposit->id = DataAccessLayer::getValue('SELECT MAX(id) FROM deposit WHERE accountId = '.$deposit->accountId.'');
 		}
 
 		public static function delete($deposit) {
@@ -25,7 +25,7 @@
 				array($accountId)
 			);
 
-			foreach($deposits as $deposit) {
+			foreach($result as $deposit) {
 				$aDeposit = new Deposit(
 					$deposit->accountId,
 					$deposit->amount,
@@ -35,7 +35,6 @@
 
 				$deposits[] = $aDeposit;
 			}
-
 			return $deposits;
 		}
 	}

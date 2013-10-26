@@ -1,18 +1,19 @@
 <?php
 	class User
 	{	
-		protected $name = "undefined";
+		protected $id = 0;
+		protected $login = "undefined";
 		protected $email = "undefined";
 		protected $password = "undefined";
 
-		public function User($name, $email, $password)
+		public function User($login, $email, $password)
 		{
-			$this->name = $name;
+			$this->login = $login;
 			$this->email = $email;
 			$this->password = $password;
 		}
 
-		public function save() {
+		public function create() {
 			UserDAL::create($this);
 		}
 
@@ -21,8 +22,8 @@
 				case 'id':
 					return $this->id;
 					break;
-				case 'name':
-					return $this->name;
+				case 'login':
+					return $this->login;
 					break;
 				case 'password':
 					return $this->password;
@@ -44,9 +45,9 @@
 						$this->id = $value;
 					}
 					break;
-				case 'name':
+				case 'login':
 					if(is_string($value) && !empty($value)) {
-						$this->name = $value;
+						$this->login = $value;
 					}
 					break;
 				case 'email':

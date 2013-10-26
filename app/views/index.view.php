@@ -34,7 +34,7 @@
 							echo '<div class="large-3 columns app-content-account">
 								<div id="account'.$account->id.'" class="large-12 columns account" data-account-id="'.$account->id.'">
 									<h2 class="account-label">'.$account->label.'</h2>
-									<span class="account-amount">'.$account->amount.'</span>
+									<span class="account-amount">'.$account->getAmount().'€</span>
 								</div>
 							</div>';
 						}		
@@ -88,9 +88,9 @@
 		</div>
 	</body>
 	<script type="text/javascript" src="assets/js/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="assets/js/jquery.nouislider.min.js"></script>
 	<script type="text/javascript" src="assets/js/foundation.min.js"></script>
 	<script type="text/javascript" src="assets/js/foundation.reveal.js"></script>
-	<script type="text/javascript" src="assets/js/jquery.nouislider.min.js"></script>
 
 	<script type="text/javascript" src="assets/js/app.js"></script>
 

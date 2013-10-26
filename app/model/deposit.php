@@ -8,13 +8,9 @@
 
 		
 		public function Deposit($accountId, $amount, $date) {
-			$this->accountId = $accountId;
+			$this->accountId = (int) $accountId;
 			$this->amount = $amount;
 			$this->date = $date;
-		}
-
-		public function save() {
-			DepositDAL::create($this);
 		}
 
 		public function delete() {
@@ -48,7 +44,7 @@
 						$this->id = $value;
 					}
 					break;
-				case 'id':
+				case 'accountId':
 					if(is_integer($value) && $value >= 0) {
 						$this->accountId = $value;
 					}

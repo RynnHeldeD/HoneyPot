@@ -1,16 +1,18 @@
 <?php
 	class AccountDAL
 	{
-		public static function createAccount(&$account) {
+		public static function createAccount(&$account, $amount = 0) {
+			global $user;
+
 			DataAccessLayer::insertInto(
 				'account',
-				array($account->label, $account->amount),
-				array('label', 'amount')
+				array($account->label, $user->id),
+				array('label', 'userId')
 			);
-			$account->id = DataAccessLayer::getValue('SELECT  MAX(id) FROM account');
+			$account->id = DataAccessLayer::getValue('SELECT  MAX(id) FROM account WHERE userId = '.$user->id.'');
 			
-			if($account->amount > 0) {
-				$firstDeposit = new Deposit($account->id, $account->amount, date('Y-m-d'));
+			if($amount > 0) {
+				$firstDeposit = new Deposit($account->id, $amount, date('Y-m-d'));
 				DepositDAL::createDeposit($firstDeposit);
 			}
 		}
@@ -21,7 +23,7 @@
 			$accounts = array();
 			
 			foreach($objects as $account){
-				$anAccount = new Account($account->label, $account->amount);
+				$anAccount = new Account($account->userId, $account->label);
 				$anAccount->id = $account->id;
 				$anAccount->deposits = DepositDAL::getAllAccountDeposits($anAccount->id);
 				
