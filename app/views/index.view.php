@@ -32,7 +32,7 @@
 					<?php if(isset($accounts)) {
 						foreach ($accounts as $counter => $account) {
 							echo '<div class="large-3 columns app-content-account">
-								<div id="account'.$account->id.'" class="large-12 columns account" data-account-id="'.$account->id.'">
+								<div class="large-12 columns account" data-account-id="'.$account->id.'">
 									<h2 class="account-label">'.$account->label.'</h2>
 									<span class="account-amount">'.$account->getAmount().'€</span>
 								</div>
@@ -51,7 +51,7 @@
 								<div class="large-12 columns objective">
 									<div class="large-11 columns objective-header">
 										<h2 class="large-10 columns objective-label">'.$objective->label.'</h2>
-										<h3 class="large-2 columns objective-percent">'.($objective->amount / $objective->goal).'%</h3>
+										<h3 class="large-2 columns objective-percent">'.(($objective->amount / $objective->goal) * 100).'%</h3>
 									</div>
 									<div class="large-11 columns progress objective-progress">';
 							
