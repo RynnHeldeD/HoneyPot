@@ -12,9 +12,10 @@
 			$objective->id = DataAccessLayer::getValue('SELECT  MAX(id) FROM objective');
 		}
 		
-		public static function getAllObjectives()
-		{
-			$objects = DataAccessLayer::query("SELECT * from objective");
+		public static function getAllObjectives() {
+			global $user;
+			
+			$objects = DataAccessLayer::query("SELECT * FROM objective WHERE userId = ?", array($user->id));
 			$objectives = array();
 			
 			foreach($objects as $objective){

@@ -17,9 +17,10 @@
 			}
 		}
 		
-		public static function getAllAccounts()
-		{
-			$objects = DataAccessLayer::query("SELECT * from account");
+		public static function getAllAccounts() {
+			global $user;
+			
+			$objects = DataAccessLayer::query("SELECT * from account WHERE userId = ?", array($user->id));
 			$accounts = array();
 			
 			foreach($objects as $account){
