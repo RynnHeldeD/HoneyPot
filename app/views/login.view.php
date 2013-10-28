@@ -33,7 +33,7 @@
 							<div class="row">
 								<div class="large-12 columns">
 									<input type="submit" class="button success" value="Connexion" tabindex="3">
-									<input type="button" class="button" value="Inscription" tabindex="4">
+									<a href='index.php?p=user&a=register'><input type="button" class="button" value="Inscription" tabindex="4"></a>
 								</div>
 							</div>
 						</form>

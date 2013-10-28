@@ -13,6 +13,8 @@
 				array($user->login, $user->email, self::encryptPassword($user->password)),
 				array('login', 'email', 'password')
 			);
+			
+			$user->id = DataAccessLayer::getValue('SELECT MAX(id) FROM user WHERE login = "'. $user->login .'"');
 		}
 
 		public static function authenticate($login, $password)

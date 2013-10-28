@@ -9,7 +9,13 @@
 	}
 
 	if(empty($user)) {
-		UserController::loginAction();
+		if(isset($_GET['p']) && ($_GET['p'] == 'user')
+			&& isset($_GET['a']) && ($_GET['a'] == 'register')) {
+			UserController::registerAction();
+		}
+		else {
+			UserController::loginAction();
+		}
 	}
 	else {
 		$controller = "frontController";

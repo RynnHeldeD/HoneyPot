@@ -14,7 +14,6 @@
 
 				if(!empty($user) && $user instanceOf User) {
 					$_SESSION['user'] = serialize($user);
-					
 					header('Location: index.php');
 				}
 				else {
@@ -26,17 +25,25 @@
 			}
 		}
 		
-
-		//registration draft
-		/*if(isset($_POST['login']) && isset($_POST['email']) && isset($_POST['password'])) {
-				$user = new User($_POST['login'], $_POST['email'], $_POST['password']);
-				// UserDAL::create($user);
-				
-				$user2 = UserDAL::authenticate($_POST['email'], $_POST['password']);
-				if(!empty($user2) && $user2 instanceOf User) {
-					echo "Connecté en tant que : " . $user2->name;
+		private static function showRegisterFormAction() {
+			include_once('app/views/registration.view.php');
+		}
+		
+		public static function registerAction() {
+			if(isset($_POST['login']) && isset($_POST['password']) && isset($_POST['email'])) {
+				if(!empty($_POST['login']) && !empty($_POST['password']) && !empty($_POST['email'])) {
+					$user = new User($_POST['login'], $_POST['email'], $_POST['password']);
+					UserDAL::create($user);
+					
+					if(!empty($user) && $user instanceOf User) {
+						$_SESSION['user'] = serialize($user);
+						header('Location: index.php');
+					}
 				}
 			}
-		}	*/
+			else {
+				self::showRegisterFormAction();
+			}
+		}
 	}
 ?>

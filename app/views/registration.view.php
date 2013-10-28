@@ -24,7 +24,7 @@
 	</head>
 
 	<body>
-	<form method="POST" action='index.php?p=user&a=registration'>
+	<form method="POST" action='index.php?p=user&a=register'>
 		<div class="large-12 columns">
 			<label for="form-nickname">Pseudonyme</label>
 			<input type="text" name="login" id="form-nickname" required>
