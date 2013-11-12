@@ -27,6 +27,7 @@
 				<!-- <hr> -->
 				<div class="large-12 columns app-content-title">
 					<h1>Mes comptes</h1>
+					<button id="add-account">Ajouter un compte</button>
 				</div>
 				<div class="large-12 columns app-content-data">
 					<?php if(isset($accounts)) {
@@ -71,6 +72,7 @@
 				</div>
 			</div>
 		</div>
+		
 		<div id="account-modal" class="reveal-modal medium">
 			<div class="large-12 columns account-modal-title">
 				<h2 class="large-8 columns">Gestion du compte</h2>
@@ -86,6 +88,27 @@
 				<hr>
 			</div>
 		</div>
+		
+		<div id="new-account-modal" class="reveal-modal medium">
+			<div class="large-12 columns account-modal-title">
+				<h2 class="large-8 columns">Nouveau compte</h2>
+				<h4 class="large-4 columns"></h4>
+			</div>
+			<div class="large-12 columns account-modal-split">
+				<h5 class="large-8 columns">Libellé</h5>
+				<span class="large-4 columns"><input type="text" name="new-account-label" value="Nouveau compte" placeholder="Nouveau compte" required /></span>
+				<hr>
+			</div>
+			<div class="large-12 columns account-modal-balance">
+				<h5 class="large-8 columns">Solde de départ</h5>
+				<span class="large-4 columns"><input type="number" name="new-account-amount" value="0" min="0"></span>
+				<hr>
+			</div>
+			<div class="large-12 columns account-modal-balance">
+				<button type="button" id="new-account-confirm">Créer</button>
+				<button type="button" id="close-window">Annuler et fermer</button>
+			</div>
+		</div>
 	</body>
 	<script type="text/javascript" src="assets/js/jquery-1.10.2.min.js"></script>
 	<script type="text/javascript" src="assets/js/jquery.nouislider.min.js"></script>
@@ -93,6 +116,5 @@
 	<script type="text/javascript" src="assets/js/foundation.reveal.js"></script>
 
 	<script type="text/javascript" src="assets/js/app.js"></script>
-
 	<script>$(document).foundation();</script>
 </html>

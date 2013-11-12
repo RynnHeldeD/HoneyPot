@@ -176,4 +176,33 @@ $(document).ready(function() {
 	meters.click(function() {
 		// console.log($(this));
 	});
+	
+	// Handle the click on the "Cancel and close" button
+	$("#close-window").click(function() {
+		var modalWindows = $(this).parent().parent();
+		modalWindows.foundation('reveal', 'close');
+	});
+	
+	// Handle the click on the "Add new account" button
+	$('#add-account').click(function() {
+		var newAccountModal = $('#new-account-modal');
+		newAccountModal.foundation('reveal', {
+			closed: function() {
+				//$(this).find('.account-modal-objective').remove();
+			}
+		});
+
+		// Opens the modal
+		newAccountModal.foundation('reveal', 'open');
+		
+		$('input[name="new-account-label"]').focus(function() {
+			this.value = "";
+		});
+		
+		$('input[name="new-account-label"]').focusout(function() {
+			if(this.value.trim() == "") {
+				this.value = "Nouveau compte";
+			}
+		});
+	});
 });
