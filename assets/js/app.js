@@ -178,7 +178,7 @@ $(document).ready(function() {
 	});
 	
 	// Handle the click on the "Cancel and close" button
-	$("#close-window").click(function() {
+	$(".close-window").click(function() {
 		var modalWindows = $(this).parent().parent();
 		modalWindows.foundation('reveal', 'close');
 	});
@@ -186,11 +186,11 @@ $(document).ready(function() {
 	// Handle the click on the "Add new account" button
 	$('#add-account').click(function() {
 		var newAccountModal = $('#new-account-modal');
-		newAccountModal.foundation('reveal', {
+		/*newAccountModal.foundation('reveal', {
 			closed: function() {
 				//$(this).find('.account-modal-objective').remove();
 			}
-		});
+		});*/
 
 		// Opens the modal
 		newAccountModal.foundation('reveal', 'open');
@@ -202,6 +202,29 @@ $(document).ready(function() {
 		$('input[name="new-account-label"]').focusout(function() {
 			if(this.value.trim() == "") {
 				this.value = "Nouveau compte";
+			}
+		});
+	});
+	
+	// Handle the click on the "Add new objective" button
+	$('#add-objective').click(function() {
+		var newObjectiveModal = $('#new-objective-modal');
+		/*newAccountModal.foundation('reveal', {
+			closed: function() {
+				//$(this).find('.account-modal-objective').remove();
+			}
+		});*/
+
+		// Opens the modal
+		newObjectiveModal.foundation('reveal', 'open');
+		
+		$('input[name="new-objective-label"]').focus(function() {
+			this.value = "";
+		});
+		
+		$('input[name="new-objective-label"]').focusout(function() {
+			if(this.value.trim() == "") {
+				this.value = "Nouvel objectif";
 			}
 		});
 	});

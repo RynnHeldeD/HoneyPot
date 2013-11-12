@@ -44,6 +44,7 @@
 				<!-- <hr> -->
 				<div class="large-12 columns app-content-title">
 					<h1>Mes objectifs</h1>
+					<button id="add-objective">Ajouter un objectif</button>
 				</div>
 				<div class="large-12 columns app-content-data">
 					<?php if(isset($objectives)) {
@@ -106,7 +107,28 @@
 			</div>
 			<div class="large-12 columns account-modal-balance">
 				<button type="button" id="new-account-confirm">Créer</button>
-				<button type="button" id="close-window">Annuler et fermer</button>
+				<button type="button" class="close-window">Annuler et fermer</button>
+			</div>
+		</div>
+		
+		<div id="new-objective-modal" class="reveal-modal medium">
+			<div class="large-12 columns account-modal-title">
+				<h2 class="large-8 columns">Nouvel objectif</h2>
+				<h4 class="large-4 columns"></h4>
+			</div>
+			<div class="large-12 columns account-modal-split">
+				<h5 class="large-8 columns">Libellé</h5>
+				<span class="large-4 columns"><input type="text" name="new-objective-label" value="Nouvel objectif" placeholder="Nouvel objectif" required /></span>
+				<hr>
+			</div>
+			<div class="large-12 columns account-modal-balance">
+				<h5 class="large-8 columns">Solde à atteindre</h5>
+				<span class="large-4 columns"><input type="number" name="new-objective-goal" value="0" min="0"></span>
+				<hr>
+			</div>
+			<div class="large-12 columns account-modal-balance">
+				<button type="button" id="new-account-confirm">Créer</button>
+				<button type="button" class="close-window">Annuler et fermer</button>
 			</div>
 		</div>
 	</body>
