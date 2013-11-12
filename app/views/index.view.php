@@ -132,7 +132,7 @@
 				<hr>
 			</div>
 			<div class="large-12 columns account-modal-balance">
-				<button type="button" id="new-account-confirm">Créer</button>
+				<button type="button" id="new-objective-confirm">Créer</button>
 				<button type="button" class="close-window">Annuler et fermer</button>
 			</div>
 		</div>
