@@ -43,6 +43,9 @@
 				case 'goal':
 					return $this->goal;
 					break;
+				case 'amount':
+					return $this->getAmount();
+					break;
 				case 'validationDate':
 					return $this->validationDate;
 					break;
