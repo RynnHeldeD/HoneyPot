@@ -88,6 +88,11 @@
 				<h5 class="large-12 columns">Répartition</h5>
 				<hr>
 			</div>
+			<div class="large-12 columns account-modal-balance">
+				<hr>
+				<button type="button" id="new-account-confirm">Enregistrer</button>
+				<button type="button" class="close-window">Annuler et fermer</button>
+			</div>
 		</div>
 		
 		<div id="new-account-modal" class="reveal-modal medium">
