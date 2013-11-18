@@ -35,7 +35,7 @@
 							echo '<div class="large-3 columns app-content-account">
 								<div class="large-12 columns account" data-account-id="'.$account->id.'">
 									<h2 class="account-label">'.$account->label.'</h2>
-									<span class="account-amount">'.$account->getAmount().'€</span>
+									<span class="account-amount">'.$account->getAvailable().'€ / '.$account->getAmount().'€</span>
 								</div>
 							</div>';
 						}		
@@ -46,9 +46,39 @@
 					<h1>Mes objectifs</h1>
 					<button id="add-objective">Ajouter un objectif</button>
 				</div>
-				<div class="large-12 columns app-content-data">
-					<?php if(isset($objectives)) {
-						foreach ($objectives as $counter => $objective) {
+				<div class="large-12 columns app-content-data" id="nonCompletedObjectives">
+					<?php if(isset($nonCompletedObjectives)) {
+						foreach ($nonCompletedObjectives as $counter => $objective) {
+							echo '<div class="large-12 columns app-content-objective">
+								<div class="large-12 columns objective">
+									<div class="large-11 columns objective-header">
+										<h2 class="large-10 columns objective-label">'.$objective->label.'</h2>
+										<h3 class="large-2 columns objective-percent">'.(($objective->amount / $objective->goal) * 100).'%</h3>
+									</div>
+									<div class="large-11 columns progress objective-progress">';
+							
+							if($objective->allocations) {
+								foreach($objective->allocations as $account => $amount) {
+									echo '<span id="meter1" class="meter columns objective-meter" data-account-id="'.$account.'">'.$amount.'</span>';
+								}
+							}
+							echo '</div>
+									<div class="large-1 columns objective-postfix">
+										<span class="postfix objective-amount">'.$objective->goal.'€</span>
+									</div>
+								</div>
+							</div>';
+						}
+					} ?>
+				</div>
+				
+				<div class="large-12 columns app-content-title">
+					<h1>Objectifs terminés</h1>
+					<button type='button' id='completedObjectivesBtn'>Show/Hide</button>
+				</div>
+				<div class="large-12 columns app-content-data" id='completedObjectives'>
+					<?php if(isset($completedObjectives)) {
+						foreach ($completedObjectives as $counter => $objective) {
 							echo '<div class="large-12 columns app-content-objective">
 								<div class="large-12 columns objective">
 									<div class="large-11 columns objective-header">
@@ -80,8 +110,8 @@
 				<h4 class="large-4 columns"></h4>
 			</div>
 			<div class="large-12 columns account-modal-balance">
-				<h5 class="large-10 columns">Solde</h5>
-				<span class="large-2 columns"></span>
+				<h5 class="large-8 columns">Solde</h5>
+				<span class="large-4 columns"></span>
 				<hr>
 			</div>
 			<div class="large-12 columns account-modal-split">
@@ -90,7 +120,7 @@
 			</div>
 			<div class="large-12 columns account-modal-balance">
 				<hr>
-				<button type="button" id="new-account-confirm">Enregistrer</button>
+				<button type="button" id="save-account-confirm">Enregistrer</button>
 				<button type="button" class="close-window">Annuler et fermer</button>
 			</div>
 		</div>
@@ -115,7 +145,7 @@
 				<button type="button" class="close-window">Annuler et fermer</button>
 			</div>
 		</div>
-		
+
 		<div id="new-objective-modal" class="reveal-modal medium">
 			<div class="large-12 columns account-modal-title">
 				<h2 class="large-8 columns">Nouvel objectif</h2>

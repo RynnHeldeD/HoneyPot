@@ -7,7 +7,8 @@
 
 		private static function showFrontPage() {
 			$accounts = AccountDAL::getAllAccounts();
-			$objectives = ObjectiveDAL::getAllObjectives();
+			$nonCompletedObjectives = ObjectiveDAL::getNonCompletedObjectives();
+			$completedObjectives = ObjectiveDAL::getCompletedObjectives();
 
 			include_once('app/views/index.view.php');
 		}

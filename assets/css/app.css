@@ -276,6 +276,10 @@ div#account-modal h5.account-modal-objective-slider-value {
 	text-align: right;
 }
 
+div#completedObjectives {
+	display: none;
+}
+
 /* Accounts styling */
 
 div.account1, span.account1.meter {

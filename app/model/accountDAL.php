@@ -33,5 +33,16 @@
 			
 			return $accounts;
 		}
+		
+		public static function getAllAllocationsForAccount($accountId) {
+			$objects = DataAccessLayer::query("SELECT amount FROM allocate WHERE accountId = ?", array($accountId));
+			$allocations = array();
+			
+			foreach($objects as $amount){
+				$allocations[] = $amount;
+			}
+			
+			return $allocations;
+		}
 	}
 ?>

@@ -19,6 +19,16 @@
 			}
 			return $amount;
 		}
+		
+		public function getAvailable() {
+			$availableAmount = $this->getAmount();
+			$allocations = AccountDAL::getAllAllocationsForAccount($this->id);
+			
+			foreach($allocations as $allocation) {
+				$availableAmount -= $allocation->amount;
+			}
+			return $availableAmount;
+		}
 
 		public function __get($property) {
 			switch ($property) {

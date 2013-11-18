@@ -33,8 +33,52 @@
 			
 			return $objectives;
 		}
+		
+		public static function getNonCompletedObjectives() {
+			global $user;
+			
+			$objects = DataAccessLayer::query("SELECT * FROM objective WHERE userId = ? AND validationDate = '0000-00-00'", array($user->id));
+			$objectives = array();
+			
+			foreach($objects as $objective){
+				$anObjective = new Objective(
+					$objective->userId,
+					$objective->label,
+					$objective->goal,
+					$objective->validationDate
+				);
+				$anObjective->id = (int)$objective->id;
+				$anObjective->allocations = self::getAllAllocationsForObjective($anObjective->id);
 
-		private static function getAllAllocations($objectiveId) {
+				$objectives[] = $anObjective;
+			}
+			
+			return $objectives;
+		}
+		
+		public static function getCompletedObjectives() {
+			global $user;
+			
+			$objects = DataAccessLayer::query("SELECT * FROM objective WHERE userId = ? AND validationDate != '0000-00-00'", array($user->id));
+			$objectives = array();
+			
+			foreach($objects as $objective){
+				$anObjective = new Objective(
+					$objective->userId,
+					$objective->label,
+					$objective->goal,
+					$objective->validationDate
+				);
+				$anObjective->id = (int)$objective->id;
+				$anObjective->allocations = self::getAllAllocationsForObjective($anObjective->id);
+
+				$objectives[] = $anObjective;
+			}
+			
+			return $objectives;
+		}
+
+		private static function getAllAllocationsForObjective($objectiveId) {
 			$allocations = array();
 			$result = DataAccessLayer::query("SELECT accountId, amount from allocate where objectiveId = ?", array($objectiveId));
 			

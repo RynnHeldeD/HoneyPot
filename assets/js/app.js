@@ -19,7 +19,7 @@ var setAccountsColors = function() {
 		var objectiveValue = $(this).parent().next().find('.objective-amount').text();
 		var meterValue = $(this).text();
 		var meterWidth = (parseInt(meterValue) * 100) / parseInt(objectiveValue.substring(0, objectiveValue.length - 1));
-		console.log(meterWidth);
+		//console.log(meterWidth);
 		accounts.each(function() {
 			if($(this).attr('data-account-id') === meterAccountId) {
 				var accountClasses = $(this).attr('class').split(' ');
@@ -57,7 +57,7 @@ $(document).ready(function() {
 				<h5 class="large-2 columns account-modal-objective-slider-value"></h5>
 			</div>
 		*/
-		var objectives = $('.app-content-objective');
+		var objectives = $('#nonCompletedObjectives .app-content-objective');
 		objectives.each(function() {
 			// Retrieves the objective's informations
 			var objectiveLabel = $(this).find('.objective-label').text();
@@ -186,6 +186,8 @@ $(document).ready(function() {
 	// Handle the click on the "Add new account" button
 	$('#add-account').click(function() {
 		var newAccountModal = $('#new-account-modal');
+		var libelleInput = $('input[name="new-account-label"]');
+		var soldeInput = $('input[name="new-account-amount"]');
 		/*newAccountModal.foundation('reveal', {
 			closed: function() {
 				//$(this).find('.account-modal-objective').remove();
@@ -195,16 +197,32 @@ $(document).ready(function() {
 		// Opens the modal
 		newAccountModal.foundation('reveal', 'open');
 		
-		$('input[name="new-account-label"]').focus(function() {
+		libelleInput.focus(function() {
 			this.value = "";
 		});
 		
-		$('input[name="new-account-label"]').focusout(function() {
+		libelleInput.focusout(function() {
 			if(this.value.trim() == "") {
 				this.value = "Nouveau compte";
 			}
 		});
+		
+		// Handle the click on the "Save" button for "New Account" form
+		$('#new-account-confirm').click(function() {
+			var libelle = libelleInput.value;
+			var solde = soldeInput.value;
+			
+			$.post( "app/controllers/AccountController.php", { action: "create", libelle:libelle, solde:solde })
+			.done(function( data ) {
+				newAccountModal.foundation('reveal', 'close');
+				setTimeout(function () {
+					location.reload(true);
+				}, 800);
+				
+			});
+		});
 	});
+	
 	
 	// Handle the click on the "Add new objective" button
 	$('#add-objective').click(function() {
@@ -227,5 +245,17 @@ $(document).ready(function() {
 				this.value = "Nouvel objectif";
 			}
 		});
+	});
+	
+	// Handle the click on the completed objectives "Show/hide" button
+	$("#completedObjectivesBtn").click(function() {
+		var completedObjectivesDiv = $('#completedObjectives');
+		if(completedObjectivesDiv.css('display') == 'none') {
+			completedObjectivesDiv.show('slow');
+			$('html, body').animate({scrollTop:$(document).height()}, 'slow');
+		}
+		else {
+			completedObjectivesDiv.hide('slow');
+		}
 	});
 });
