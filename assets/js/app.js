@@ -62,6 +62,7 @@ $(document).ready(function() {
 			// Retrieves the objective's informations
 			var objectiveLabel = $(this).find('.objective-label').text();
 			var objectiveAmount = $(this).find('.objective-amount').text();
+			var objectiveId = $(this).find('.objective-label').attr('data-id');
 			var objectiveAllowedAmount = '0';
 			var objectiveSliderMaxValue = 0;
 
@@ -101,14 +102,14 @@ $(document).ready(function() {
 
 			var modalObjectiveLabel = $('<h3/>', {
 				text : objectiveLabel,
-				class: 'large-4 columns account-modal-objective-label'
-			}).appendTo(modalObjective);
+				class: 'large-4 columns account-modal-objective-label',
+			}).attr('data-id', objectiveId).appendTo(modalObjective);
 
 			var modalObjectiveSlider = $('<div/>', {
 				class: 'large-6 columns account-modal-objective-slider noUiSlider'
 			}).noUiSlider({
-				range  : [0, objectiveSliderMaxValue],
-				start  : 0,
+				range  : [0, parseInt(objectiveAllowedAmount) + parseInt(objectiveSliderMaxValue)],
+				start  : objectiveAllowedAmount,
 				handles: 1,
 				step   : 1,
 				slide  : function() {
@@ -144,6 +145,12 @@ $(document).ready(function() {
 				set    : function() {
 					// Updates the slider's value
 					$(this).parent().find('.account-modal-objective-slider-value').text(parseInt($(this).val()) + '€');
+                    if($(this).val() < parseInt(objectiveAllowedAmount)) {
+                        // TO DO
+                        /*var credit = parseInt(objectiveAllowedAmount) - $(this).val();
+                        accountBalanceInt = accountBalanceInt + credit;
+                        accountModalBalance.text(accountBalanceInt);*/
+                    }
 				}
 			});
             
@@ -152,7 +159,7 @@ $(document).ready(function() {
             }
 
 			var modalObjectiveSliderValue = $('<h5/>', {
-				text : '0€',
+				text : parseInt(objectiveAllowedAmount) + '€',
 				class: 'large-2 columns account-modal-objective-slider-value'
 			}).appendTo(modalObjective);
 
@@ -162,6 +169,7 @@ $(document).ready(function() {
 
 		// Fills the modal
 		accountModalLabel.text(accountLabel);
+		accountModalLabel.attr('account-id', accountId);
 		accountModalBalance.text(accountBalance);
 
 		// Sets a callback on closing
@@ -195,6 +203,30 @@ $(document).ready(function() {
 		var modalWindows = $(this).parent().parent();
 		modalWindows.foundation('reveal', 'close');
 	});
+    
+    // Handle the click on the "Save" button in Account form
+	$("#save-account-confirm").click(function() {
+        var modalWindows = $(this).parent().parent();
+        var objectives = $('.account-modal-objective');
+        var allocations = new Array();
+        var accountId = modalWindows.find('.account-modal-title > h4').attr('account-id');
+        console.log(accountId);
+        
+        objectives.each(function() {
+            // Retrieves the objective's informations
+            var objectiveId = $(this).find('.account-modal-objective-label').attr('data-id');
+            var objectiveAmount = $(this).find('.account-modal-objective-slider-value').text();
+            allocations.push(new Array(objectiveId, objectiveAmount));
+        });
+        $.post( "index.php", { a: "updateObjective", p: 'Objective', allocations:allocations, accountId: accountId })
+        .done(function( data ) {
+            modalWindows.foundation('reveal', 'close');
+            setTimeout(function () {
+                location.reload(true);
+            }, 500);
+            
+        });
+    });
 	
 	// Handle the click on the "Add new account" button
 	$('#add-account').click(function() {

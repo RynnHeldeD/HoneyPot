@@ -11,6 +11,28 @@
 			);
 			$objective->id = DataAccessLayer::getValue('SELECT  MAX(id) FROM objective');
 		}
+        
+        public static function updateObjective($accountId, $objectiveId, $amount) {
+            $currentAmount = DataAccessLayer::getValue(
+                'SELECT amount FROM allocate WHERE accountId = ? AND objectiveId = ?',
+                array($accountId, $objectiveId)
+            );
+            
+            if(!empty($currentAmount)) {   
+			     DataAccessLayer::query(
+                    'UPDATE allocate SET amount = ? WHERE accountId = ? AND objectiveId = ?', 
+                    array($amount, $accountId, $objectiveId), 
+                    false
+                 );
+            }
+            else {
+                DataAccessLayer::insertInto(
+                    'allocate', 
+                    array($accountId, $objectiveId, $amount),
+                    array('accountId', 'objectiveId', 'amount')
+                );
+            }
+        }
 		
 		public static function getAllObjectives() {
 			global $user;
