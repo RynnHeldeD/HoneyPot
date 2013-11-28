@@ -15,16 +15,25 @@
 		$controller = "frontController";
 		$action = "defaultAction";
 
-		if(isset($_GET['p'])) {
-			if($_GET['p'] == 'logout') {
+		if(isset($_GET['p']) || isset($_POST['p'])) {
+			if(isset($_GET['p']) && $_GET['p'] == 'logout') {
 				session_destroy();
 				header('Location: index.php');
 			}
 			else {
-				$controller = $_GET['p'] . 'Controller';
-				if(isset($_GET['a'])) {
+                if(isset($_GET['p']) && !empty($_GET['p'])) {
+                    $controller = $_GET['p'] . 'Controller';
+                }
+                elseif(isset($_POST['p']) && !empty($_POST['p'])) {
+                    $controller = $_POST['p'] . 'Controller';
+                }
+                
+				if(isset($_GET['a']) && !empty($_GET['a'])) {
 					$action = $_GET['a'] . 'Action';	
 				}
+                elseif(isset($_POST['a']) && !empty($_POST['a'])) {
+                    $action = $_POST['a'] . 'Action';	
+                }
 			}
 		}
 

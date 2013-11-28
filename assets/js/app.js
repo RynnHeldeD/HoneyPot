@@ -81,7 +81,13 @@ $(document).ready(function() {
 				objectiveSliderMaxValue = accountBalanceInt;
 			}
 			else {
-				objectiveSliderMaxValue = objectiveAmountInt;
+                // If an objective has no goal : its ceil is infinite, we can put all the money we want in it
+                if(objectiveAmountInt == 0) {
+                    objectiveSliderMaxValue = accountBalanceInt;
+                }
+                else {
+				    objectiveSliderMaxValue = objectiveAmountInt;
+                }
 			}
 
 			// Creates the new elements
@@ -124,7 +130,6 @@ $(document).ready(function() {
 								// console.log('different');
 								// -1 because we don't care about the selected slider
 								slider.val(Math.ceil(parseInt(slider.val()) - ((slidersSum - accountBalanceInt) / (slidersNumber - 1))), true);
-								console.log(Math.ceil(parseInt(slider.val()) - ((slidersSum - accountBalanceInt) / (slidersNumber - 1))));
 							}
 							else {
 								// console.log('equals');
@@ -209,15 +214,15 @@ $(document).ready(function() {
 		
 		// Handle the click on the "Save" button for "New Account" form
 		$('#new-account-confirm').click(function() {
-			var libelle = libelleInput.value;
-			var solde = soldeInput.value;
+			var libelle = libelleInput.val();
+			var solde = soldeInput.val();
 			
-			$.post( "app/controllers/AccountController.php", { action: "create", libelle:libelle, solde:solde })
+			$.post( "index.php", { a: "createAccount", p: 'Account', libelle:libelle, solde:solde })
 			.done(function( data ) {
 				newAccountModal.foundation('reveal', 'close');
 				setTimeout(function () {
 					location.reload(true);
-				}, 800);
+				}, 500);
 				
 			});
 		});
@@ -245,6 +250,21 @@ $(document).ready(function() {
 				this.value = "Nouvel objectif";
 			}
 		});
+	});
+	
+	// Handle the click on the "Add new objective" confirm button
+	$('#new-objective-confirm').click(function() {
+		var newObjectiveModal = $('#new-objective-modal');
+		var objectiveLabel = $('input[name="new-objective-label"]').val();
+		var objectiveGoal = $('input[name="new-objective-goal"]').val();
+        
+        $.post( "index.php", { label: objectiveLabel, goal: objectiveGoal, a: 'createNewObjective', p: 'Objective' })
+        .done(function( data ) {
+            newObjectiveModal.foundation('reveal', 'close');
+            setTimeout(function () {
+					location.reload(true);
+				}, 500);
+        });
 	});
 	
 	// Handle the click on the completed objectives "Show/hide" button

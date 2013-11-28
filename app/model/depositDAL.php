@@ -1,7 +1,7 @@
 <?php
 	class DepositDAL
 	{
-		public static function create(&$deposit) {
+		public static function createDeposit(&$deposit) {
 			DataAccessLayer::insertInto(
 				'deposit', 
 				array($deposit->accountId, $deposit->amount, date('Y-m-d')), 
@@ -10,7 +10,7 @@
 			$deposit->id = DataAccessLayer::getValue('SELECT MAX(id) FROM deposit WHERE accountId = '.$deposit->accountId.'');
 		}
 
-		public static function delete($deposit) {
+		public static function deleteDeposit($deposit) {
 			DataAccessLayer::query(
 				'DELETE FROM deposit WHERE id = ?',
 				array($deposit->id),

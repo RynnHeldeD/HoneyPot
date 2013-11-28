@@ -8,7 +8,7 @@
 		protected $allocations = null;
 		protected $validationDate = '0000-00-00';
 
-		public function Objective($userId, $label, $goal, $validationDate, $allocations = array()) {
+		public function Objective($userId, $label, $goal, $validationDate = '0000-00-00', $allocations = array()) {
 			$this->userId = (int) $userId;
 			$this->goal = (int) $goal;
 			$this->label = $label;

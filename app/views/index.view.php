@@ -52,8 +52,11 @@
 							echo '<div class="large-12 columns app-content-objective">
 								<div class="large-12 columns objective">
 									<div class="large-11 columns objective-header">
-										<h2 class="large-10 columns objective-label">'.$objective->label.'</h2>
-										<h3 class="large-2 columns objective-percent">'.(($objective->amount / $objective->goal) * 100).'%</h3>
+										<h2 class="large-10 columns objective-label">'.$objective->label.'</h2>';
+                            if($objective->goal > 0) {
+                                echo '<h3 class="large-2 columns objective-percent">'.(($objective->amount / $objective->goal) * 100).'%</h3>';
+                            }
+                            echo '
 									</div>
 									<div class="large-11 columns progress objective-progress">';
 							

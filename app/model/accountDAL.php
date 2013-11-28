@@ -12,7 +12,9 @@
 			$account->id = DataAccessLayer::getValue('SELECT  MAX(id) FROM account WHERE userId = '.$user->id.'');
 			
 			if($amount > 0) {
+                var_dump('amount : ' . $amount);
 				$firstDeposit = new Deposit($account->id, $amount, date('Y-m-d'));
+                var_dump($firstDeposit);
 				DepositDAL::createDeposit($firstDeposit);
 			}
 		}
