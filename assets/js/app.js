@@ -89,6 +89,10 @@ $(document).ready(function() {
 				    objectiveSliderMaxValue = objectiveAmountInt;
                 }
 			}
+            
+            if(accountBalanceInt == 0) {
+                objectiveSliderMaxValue = 1;
+            }
 
 			// Creates the new elements
 			var modalObjective = $('<div/>', {
@@ -141,7 +145,11 @@ $(document).ready(function() {
 					// Updates the slider's value
 					$(this).parent().find('.account-modal-objective-slider-value').text(parseInt($(this).val()) + '€');
 				}
-			}).appendTo(modalObjective);
+			});
+            
+            if(accountBalanceInt > 0) {
+                modalObjectiveSlider.appendTo(modalObjective);
+            }
 
 			var modalObjectiveSliderValue = $('<h5/>', {
 				text : '0€',
