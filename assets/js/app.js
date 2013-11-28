@@ -128,6 +128,8 @@ $(document).ready(function() {
 
 					// Balance the sliders values
 					if(slidersSum > accountBalanceInt) {
+                        // TO REACTIVATE WHEN REDUCING SLIDER WORK
+                        /*
 						sliders.each(function() {
 							var slider = $(this);
 							// Only take care about the other sliders
@@ -139,7 +141,7 @@ $(document).ready(function() {
 							else {
 								// console.log('equals');
 							}
-						});
+						});*/
 					}
 				},
 				set    : function() {
@@ -221,10 +223,7 @@ $(document).ready(function() {
         $.post( "index.php", { a: "updateObjective", p: 'Objective', allocations:allocations, accountId: accountId })
         .done(function( data ) {
             modalWindows.foundation('reveal', 'close');
-            setTimeout(function () {
-                location.reload(true);
-            }, 500);
-            
+            location.reload(true);
         });
     });
 	
@@ -260,9 +259,7 @@ $(document).ready(function() {
 			$.post( "index.php", { a: "createAccount", p: 'Account', libelle:libelle, solde:solde })
 			.done(function( data ) {
 				newAccountModal.foundation('reveal', 'close');
-				setTimeout(function () {
-					location.reload(true);
-				}, 500);
+                location.reload(true);
 				
 			});
 		});
@@ -301,9 +298,7 @@ $(document).ready(function() {
         $.post( "index.php", { label: objectiveLabel, goal: objectiveGoal, a: 'createNewObjective', p: 'Objective' })
         .done(function( data ) {
             newObjectiveModal.foundation('reveal', 'close');
-            setTimeout(function () {
-					location.reload(true);
-				}, 500);
+            location.reload(true);
         });
 	});
 	
@@ -317,5 +312,15 @@ $(document).ready(function() {
 		else {
 			completedObjectivesDiv.hide('slow');
 		}
+	});
+    
+    // Handle the click on a objective validation button
+	$(".objective-validation-button").click(function() {
+		var objectiveId = $(this).attr('data-objective-id');
+        
+		$.post( "index.php", { objectiveId: objectiveId, a: 'validateObjective', p: 'Objective' })
+        .done(function( data ) {
+            location.reload(true);
+        });
 	});
 });

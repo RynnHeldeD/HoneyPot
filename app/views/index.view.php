@@ -52,9 +52,12 @@
 							echo '<div class="large-12 columns app-content-objective">
 								<div class="large-12 columns objective">
 									<div class="large-11 columns objective-header">
-										<h2 class="large-10 columns objective-label" data-id="'.$objective->id.'">'.$objective->label.'</h2>';
+										<h2 class="large-9 columns objective-label" data-id="'.$objective->id.'">'.$objective->label.'</h2>';
                             if($objective->goal > 0) {
                                 echo '<h3 class="large-2 columns objective-percent">'.(($objective->amount / $objective->goal) * 100).'%</h3>';
+                                if($objective->amount == $objective->goal){
+                                    echo '<h3 class="large-1 columns objective-percent objective-validation-button" data-objective-id="'.$objective->id.'" style="cursor:pointer;">Validate?</h3>';
+                                }
                             }
                             echo '
 									</div>

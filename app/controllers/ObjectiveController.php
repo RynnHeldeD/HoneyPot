@@ -24,8 +24,10 @@
                 ObjectiveDAL::updateObjective($accountId, $objectiveId, $amount);
             }
         }
-		public static function validateObjectiveAction($objectiveId) {
-
+		public static function validateObjectiveAction() {
+            $objectiveId = $_POST['objectiveId'];
+            
+            ObjectiveDAL::validateObjective($objectiveId);
 		}
 
 		public static function removeObjectiveAction($objectiveId) {

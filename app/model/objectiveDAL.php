@@ -33,6 +33,15 @@
                 );
             }
         }
+        
+        public static function validateObjective($objectiveId)
+        {
+            DataAccessLayer::query(
+                    'UPDATE objective SET validationDate = ? WHERE id = ?', 
+                    array(date('Y-m-d'), $objectiveId), 
+                    false
+                 );
+        }
 		
 		public static function getAllObjectives() {
 			global $user;
