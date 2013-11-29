@@ -118,8 +118,14 @@
 			<div class="large-12 columns account-modal-balance">
 				<h5 class="large-8 columns">Solde</h5>
 				<span class="large-4 columns"></span>
-				<hr>
 			</div>
+			<div class="large-12 columns">
+                <button class="large-2 columns" type="button" id="account-add-deposit">Approvisionner</button>
+				<span class="large-2 columns">
+                    <input type="number" name="new-deposit" value="0" />
+                </span>
+				<hr>
+            </div>
 			<div class="large-12 columns account-modal-split">
 				<h5 class="large-12 columns">Répartition</h5>
 				<hr>

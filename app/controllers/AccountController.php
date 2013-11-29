@@ -12,6 +12,14 @@
             $account = new Account($user->id, $libelle);
             AccountDAL::createAccount($account, $solde);   
         }
+        
+        public static function newDepositAction(){
+            $depositAmount = $_POST['depositAmount'];   
+            $accountId = $_POST['accountId'];
+            
+            $newDeposit = new Deposit($accountId, $depositAmount, date('Y-m-d'));
+            DepositDAL::createDeposit($newDeposit);
+        }
             
 	}
 ?>

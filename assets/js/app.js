@@ -212,7 +212,6 @@ $(document).ready(function() {
         var objectives = $('.account-modal-objective');
         var allocations = new Array();
         var accountId = modalWindows.find('.account-modal-title > h4').attr('account-id');
-        console.log(accountId);
         
         objectives.each(function() {
             // Retrieves the objective's informations
@@ -319,6 +318,18 @@ $(document).ready(function() {
 		var objectiveId = $(this).attr('data-objective-id');
         
 		$.post( "index.php", { objectiveId: objectiveId, a: 'validateObjective', p: 'Objective' })
+        .done(function( data ) {
+            location.reload(true);
+        });
+	});
+    
+    // Handle the click on a new deposit button
+	$("#account-add-deposit").click(function() {
+        var modalWindows = $(this).parent().parent();
+		var accountId = modalWindows.find('.account-modal-title > h4').attr('account-id');
+        var depositAmount = $('input[name="new-deposit"]').val();
+        
+		$.post( "index.php", { accountId: accountId, depositAmount: depositAmount, a: 'newDeposit', p: 'Account' })
         .done(function( data ) {
             location.reload(true);
         });
