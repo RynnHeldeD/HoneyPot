@@ -100,7 +100,6 @@ $(document).ready(function() {
 				class: 'large-12 columns account-modal-objective'
 			});
 
-//<<<<<<< HEAD
 			var modalObjectiveLabel = $('<h3/>', {
 				text : objectiveLabel,
 				class: 'large-4 columns account-modal-objective-label',
@@ -165,7 +164,10 @@ $(document).ready(function() {
 				text : parseInt(objectiveAllowedAmount) + '€',
 				class: 'large-2 columns account-modal-objective-slider-value'
 			}).appendTo(modalObjective);
-//=======
+
+			
+			//======= NICO BELLIC FORGOTTEN CODE ======//
+			/*
 			if( objectiveSliderMaxValue === 0) {
 				var modalObjectiveErrorContainer = $('<div/>', {
 					class: 'large-12 columns account-modal-error'
@@ -232,8 +234,10 @@ $(document).ready(function() {
 					class: 'large-2 columns account-modal-objective-slider-value'
 				}).appendTo(modalObjective);
 			}
-//>>>>>>> Don't remember
-
+			*/
+			//>>>>>>> Don't remember
+			
+			
 			// Adds the new elements to the modal
 			accountModalSplit.append(modalObjective);
 		});
