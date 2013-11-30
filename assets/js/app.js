@@ -100,6 +100,7 @@ $(document).ready(function() {
 				class: 'large-12 columns account-modal-objective'
 			});
 
+//<<<<<<< HEAD
 			var modalObjectiveLabel = $('<h3/>', {
 				text : objectiveLabel,
 				class: 'large-4 columns account-modal-objective-label',
@@ -164,6 +165,74 @@ $(document).ready(function() {
 				text : parseInt(objectiveAllowedAmount) + '€',
 				class: 'large-2 columns account-modal-objective-slider-value'
 			}).appendTo(modalObjective);
+//=======
+			if( objectiveSliderMaxValue === 0) {
+				var modalObjectiveErrorContainer = $('<div/>', {
+					class: 'large-12 columns account-modal-error'
+				});
+				var modalObjectiveError = $('<h2/>', {
+					class: 'error',
+					text : 'Le solde de ce compte est insuffisant'
+				}).appendTo(modalObjectiveErrorContainer);
+				console.log(modalObjectiveErrorContainer);
+				modalObjectiveErrorContainer.appendTo(modalObjective);
+			}
+			else {
+				var modalObjectiveLabel = $('<h3/>', {
+					text : objectiveLabel,
+					class: 'large-4 columns account-modal-objective-label'
+				}).appendTo(modalObjective);
+
+				var modalObjectiveSlider = $('<div/>', {
+					class: 'large-6 columns account-modal-objective-slider noUiSlider'
+				}).noUiSlider({
+					range  : [0, objectiveSliderMaxValue],
+					start  : 0,
+					handles: 1,
+					step   : 1,
+					slide  : function() {
+						var sliderValue   = parseInt($(this).val());
+						var sliders       = $('.account-modal-objective-slider');
+						var slidersNumber = sliders.length;
+						var slidersSum    = 0;
+
+						// Count the sliders value
+						sliders.each(function() {
+							slidersSum += parseInt($(this).val());
+						});
+
+						// Updates the slider's value
+						$(this).parent().find('.account-modal-objective-slider-value').text(sliderValue + '€');
+
+						// Balance the sliders values
+						if(slidersSum > accountBalanceInt) {
+							sliders.each(function() {
+								var slider = $(this);
+								// Only take care about the other sliders
+								if(parseInt(slider.val()) !== sliderValue) {
+									// console.log('different');
+									// -1 because we don't care about the selected slider
+									slider.val(Math.ceil(parseInt(slider.val()) - ((slidersSum - accountBalanceInt) / (slidersNumber - 1))), true);
+									//console.log(Math.ceil(parseInt(slider.val()) - ((slidersSum - accountBalanceInt) / (slidersNumber - 1))));
+								}
+								else {
+									// console.log('equals');
+								}
+							});
+						}
+					},
+					set    : function() {
+						// Updates the slider's value
+						$(this).parent().find('.account-modal-objective-slider-value').text(parseInt($(this).val()) + '€');
+					}
+				}).appendTo(modalObjective);
+				
+				var modalObjectiveSliderValue = $('<h5/>', {
+					text : '0€',
+					class: 'large-2 columns account-modal-objective-slider-value'
+				}).appendTo(modalObjective);
+			}
+//>>>>>>> Don't remember
 
 			// Adds the new elements to the modal
 			accountModalSplit.append(modalObjective);
