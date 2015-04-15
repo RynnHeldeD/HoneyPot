@@ -104,7 +104,20 @@ $(document).ready(function() {
 				text : objectiveLabel,
 				class: 'large-4 columns account-modal-objective-label',
 			}).attr('data-id', objectiveId).appendTo(modalObjective);
-
+			
+			var modalObjectiveContainer = $('<div/>', {
+				'class': 'large-6 columns account-modal-objective-container',
+			});
+			var modalObjectiveInput = $('<input/>', {
+				'type': 'number',
+				'class': 'account-modal-objective-input',
+				'value': objectiveAllowedAmount
+			}).css({
+				'display': 'inline-block',
+				'width': '90%'
+			});
+			var modalObjectiveInputDevise = $('<span>€<span/>');
+			
 			var modalObjectiveSlider = $('<div/>', {
 				class: 'large-6 columns account-modal-objective-slider noUiSlider'
 			}).noUiSlider({
@@ -157,13 +170,15 @@ $(document).ready(function() {
 			});
             
             if(accountBalanceInt > 0) {
-                modalObjectiveSlider.appendTo(modalObjective);
+            	modalObjectiveInput.appendTo(modalObjectiveContainer);
+                modalObjectiveInputDevise.appendTo(modalObjectiveContainer);
+                modalObjectiveContainer.appendTo(modalObjective);
             }
 
-			var modalObjectiveSliderValue = $('<h5/>', {
-				text : parseInt(objectiveAllowedAmount) + '€',
-				class: 'large-2 columns account-modal-objective-slider-value'
-			}).appendTo(modalObjective);
+			// var modalObjectiveSliderValue = $('<h5/>', {
+			// 	text : parseInt(objectiveAllowedAmount) + '€',
+			// 	class: 'large-2 columns account-modal-objective-slider-value'
+			// }).appendTo(modalObjective);
 
 			
 			//======= NICO BELLIC FORGOTTEN CODE ======//
@@ -289,7 +304,7 @@ $(document).ready(function() {
         objectives.each(function() {
             // Retrieves the objective's informations
             var objectiveId = $(this).find('.account-modal-objective-label').attr('data-id');
-            var objectiveAmount = $(this).find('.account-modal-objective-slider-value').text();
+            var objectiveAmount = $(this).find('.account-modal-objective-input').val();
             allocations.push(new Array(objectiveId, objectiveAmount));
         });
         $.post( "index.php", { a: "updateObjective", p: 'Objective', allocations:allocations, accountId: accountId })
